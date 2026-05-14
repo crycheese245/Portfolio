@@ -6,6 +6,9 @@ export default defineConfig({
   plugins: [vue()],
   server: {
     port: 5176,
+    allowedHosts: [
+      "cheehouse.io.vn"
+    ],
   },
   resolve: {
     alias: {
