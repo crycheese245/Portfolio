@@ -1,0 +1,294 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Pastel Pink – CheeHouse palette */
+  --primary: #E879B0;
+  --primary-light: #F9B2D7;
+  --primary-100: #FDE8F3;
+  --primary-200: #FBC5E2;
+  --primary-700: #C2527A;
+  --secondary-blue: #CFECF3;
+  --secondary-mint: #DAF9DE;
+  --secondary-yellow: #F6FFDC;
+  --text-dark: #2D1B33;
+  --text-gray: #6B7280;
+  --text-light: #9CA3AF;
+  --white: #FFFFFF;
+  --bg-light: #FDF5FA;
+  --bg-dark: #1A0B23;
+  --border: #F3D4E8;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow: 0 4px 16px rgba(232,121,176,0.1);
+  --shadow-lg: 0 10px 30px rgba(232,121,176,0.14);
+  --shadow-xl: 0 20px 50px rgba(232,121,176,0.16);
+  --shadow-primary: 0 8px 24px rgba(232,121,176,0.32);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --transition: all 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- Section layout ---- */
+.section {
+  padding: 100px 0;
+}
+
+.section--light {
+  background: var(--bg-light);
+}
+
+.section--dark {
+  background: var(--bg-dark);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-title {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--text-gray);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-700);
+  border-color: var(--primary-700);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-white {
+  background: white;
+  color: var(--primary);
+  border-color: white;
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-sm {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+/* ---- Cards ---- */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* ---- Scroll reveal animations ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-48px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(48px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---- Stagger delays ---- */
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.3s !important; }
+.delay-4 { transition-delay: 0.4s !important; }
+.delay-5 { transition-delay: 0.5s !important; }
+.delay-6 { transition-delay: 0.6s !important; }
+
+/* ---- Blob background ---- */
+.blob-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+
+.blob--purple {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(249,178,215,0.55), transparent 70%);
+  top: -150px;
+  right: -100px;
+  animation: blobFloat 9s ease-in-out infinite;
+}
+
+.blob--pink {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(207,236,243,0.45), transparent 70%);
+  bottom: -100px;
+  left: -100px;
+  animation: blobFloat 12s ease-in-out infinite reverse;
+}
+
+.blob--mint {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(218,249,222,0.4), transparent 70%);
+  top: 40%;
+  left: 20%;
+  animation: blobFloat 11s ease-in-out infinite 2s;
+}
+
+.blob--peach {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(246,255,220,0.45), transparent 70%);
+  bottom: 20%;
+  right: 15%;
+  animation: blobFloat 13s ease-in-out infinite 1s reverse;
+}
+
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -25px) scale(1.06); }
+  66%       { transform: translate(-20px, 20px) scale(0.94); }
+}
+
+/* ---- Badge pill ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--primary-100);
+  color: var(--primary);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---- Section tag ---- */
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--primary-100);
+  color: var(--primary);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
