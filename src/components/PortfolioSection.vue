@@ -38,7 +38,7 @@ const projects = [
     image: '/images/Project_AppRunEmu.png',
     category: 'Web',
     title: 'Nền tảng lưu trữ và giả lập game J2ME (Java)',
-    desc: 'CheeEmu là một nền tảng web được thiết kế để lưu trữ và giả lập các trò chơi J2ME cổ điển, cho phép người dùng trải nghiệm lại các tựa game di động huyền thoại trực tiếp trên trình duyệt hiện đại mà không cần cài đặt thêm phần mềm phức tạp.',
+    desc: 'CheeEmu là một nền tảng web được thiết kế để lưu trữ và giả lập các trò chơi J2ME cổ điển, cho phép người dùng trải nghiệm lại các tựa game di động huyền thoại trực tiếp trên trình duyệt hiện đại mà không cần cài đặt thêm phần mềm phức tạp. Xem thêm tại: https://emu.cheehouse.io.vn/',
   },
   {
     id: 6,
