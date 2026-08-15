@@ -1,18 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import AppNavBar from './components/AppNavBar.vue'
-import HeroSection from './components/HeroSection.vue'
-import AboutSection from './components/AboutSection.vue'
-import WorkProcess from './components/WorkProcess.vue'
-import PortfolioSection from './components/PortfolioSection.vue'
-import CTASection from './components/CTASection.vue'
-import ServicesSection from './components/ServicesSection.vue'
-import TestimonialSection from './components/TestimonialSection.vue'
-import ContactSection from './components/ContactSection.vue'
 import AppFooter from './components/AppFooter.vue'
-import { useScrollReveal } from './composables/useScrollReveal'
-
-useScrollReveal()
 
 const showTop = ref(false)
 const onScroll = () => { showTop.value = window.scrollY > 400 }
@@ -25,16 +14,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 <template>
   <div class="app">
     <AppNavBar />
-    <main>
-      <HeroSection />
-      <AboutSection />
-      <WorkProcess />
-      <PortfolioSection />
-      <CTASection />
-      <ServicesSection />
-      <TestimonialSection />
-      <ContactSection />
-    </main>
+    <RouterView />
     <AppFooter />
 
     <Transition name="backtop">
