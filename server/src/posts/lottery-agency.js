@@ -15,7 +15,7 @@ export const lotteryAgencyPost = {
 </ul>
 
 <h2>Phần khó nhất: engine đối soát giải thưởng</h2>
-<p>Kết quả xổ số miền Nam có cấu trúc 18 giải (Đặc biệt, Giải 1 đến Giải 8) với tổng cộng 28 số được quay. Mỗi kiểu cược (Đầu/Cuối, Đầu/Xỉu, Xỉu/Chủ, bao lô 16/17/18/7 lô...) lại chỉ đối chiếu với một tập con cụ thể của 28 số đó — sai một chỗ trong luật ánh xạ là tính sai tiền thưởng thật của khách hàng. Hệ thống mô phỏng đúng toàn bộ cấu trúc này, với công thức chung:</p>
+<p>Kết quả xổ số miền Nam có cấu trúc 18 giải (Đặc biệt, Giải 1 đến Giải 8) với tổng cộng 28 số được quay. Mỗi kiểu cược lại chỉ đối chiếu với một tập con cụ thể của 28 số đó — sai một chỗ trong luật ánh xạ là tính sai tiền thưởng thật của khách hàng. Hệ thống mô phỏng đúng toàn bộ cấu trúc này, với công thức chung:</p>
 <blockquote>Tiền thưởng = Giá vé × Hệ số × Số lần trúng × Số lượng cược</blockquote>
 <p>Điểm mình thấy hay là <b>hệ số thưởng không hardcode trong code</b> mà lưu trong một bảng riêng của database — 2 số nhân 70 lần, 3 số nhân 500 lần, 4 số nhân 3.200 lần... Nghĩa là khi công ty xổ số thay đổi tỷ lệ thưởng, chỉ cần sửa dữ liệu chứ không cần deploy lại code.</p>
 

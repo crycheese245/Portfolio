@@ -19,6 +19,7 @@ const projects = [
     category: 'Web',
     title: 'Tích hợp Chat AI API',
     desc: 'Hệ thống chat thông minh tích hợp AI API, hỗ trợ tự động trả lời và xử lý hội thoại theo ngữ cảnh cho website và ứng dụng.',
+    detailRoute: '/blog/xay-cheehouse-aichat-chat-da-mo-hinh-ai-voi-he-thong-token-noi-bo-va-duyet-nap-tien-thu-cong',
   },
   {
     id: 3,
