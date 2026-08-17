@@ -1,6 +1,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
+const route = useRoute()
+const router = useRouter()
 const logoSrc = '/images/cheehouse-logo.png'
 const isScrolled = ref(false)
 const isMobileOpen = ref(false)
@@ -12,6 +15,8 @@ const navLinks = [
   { label: 'Dự án', href: 'portfolio' },
   { label: 'Dịch vụ', href: 'services' },
 ]
+
+const blogLink = { label: 'Blog', to: '/blog' }
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 60
@@ -27,6 +32,10 @@ const handleScroll = () => {
 
 const scrollTo = (id) => {
   isMobileOpen.value = false
+  if (route.path !== '/') {
+    router.push({ path: '/', hash: `#${id}` })
+    return
+  }
   const el = document.getElementById(id)
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
@@ -54,6 +63,9 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
         >
           {{ link.label }}
         </button>
+        <RouterLink :to="blogLink.to" class="navbar__link" active-class="navbar__link--active">
+          {{ blogLink.label }}
+        </RouterLink>
         <button class="btn btn-primary navbar__cta" @click="scrollTo('contact')">
           Liên hệ
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -93,6 +105,9 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           >
             {{ link.label }}
           </button>
+          <RouterLink :to="blogLink.to" class="mobile-nav__link" active-class="mobile-nav__link--active" @click="isMobileOpen = false">
+            {{ blogLink.label }}
+          </RouterLink>
         </nav>
 
         <button class="btn btn-primary mobile-nav__cta" @click="scrollTo('contact')">

@@ -10,6 +10,11 @@ export default defineConfig({
     allowedHosts: [
       "cheehouse.io.vn"
     ],
+    // Local dev only — production nginx proxies /api and /uploads to the backend directly.
+    proxy: {
+      '/api': 'http://localhost:4180',
+      '/uploads': 'http://localhost:4180',
+    },
   },
   resolve: {
     alias: {

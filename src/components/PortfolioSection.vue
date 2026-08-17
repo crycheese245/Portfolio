@@ -39,6 +39,7 @@ const projects = [
     category: 'Web',
     title: 'Nền tảng lưu trữ và giả lập game J2ME (Java)',
     desc: 'CheeEmu là một nền tảng web được thiết kế để lưu trữ và giả lập các trò chơi J2ME cổ điển, cho phép người dùng trải nghiệm lại các tựa game di động huyền thoại trực tiếp trên trình duyệt hiện đại mà không cần cài đặt thêm phần mềm phức tạp. Xem thêm tại: https://emu.cheehouse.io.vn/',
+    detailRoute: '/du-an/cheeemu',
   },
   {
     id: 6,
@@ -46,14 +47,6 @@ const projects = [
     category: 'Web',
     title: 'Website Portfolio Cá nhân',
     desc: 'Trang portfolio chuyên nghiệp với animation mượt mà, tối ưu SEO và tích hợp form liên hệ kết nối trực tiếp qua email.',
-  },
-  {
-    id: 7,
-    image: '',
-    category: 'Web',
-    title: 'Đang cập nhật...',
-    desc: 'Dự án mới đang được hoàn thiện. Hãy theo dõi để cập nhật sớm nhất!',
-    placeholder: true,
   },
 ]
 
@@ -126,7 +119,11 @@ const closeModal = () => {
             </div>
             <img v-else :src="project.image" :alt="project.title" class="portfolio__img" loading="lazy" />
             <div v-if="!project.placeholder" class="portfolio__overlay">
-              <button class="btn btn-white btn-sm" @click.prevent="openModal(project)">
+              <RouterLink v-if="project.detailRoute" :to="project.detailRoute" class="btn btn-white btn-sm">
+                Xem chi tiết dự án
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </RouterLink>
+              <button v-else class="btn btn-white btn-sm" @click.prevent="openModal(project)">
                 Xem chi tiết
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
