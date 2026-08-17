@@ -27,6 +27,7 @@ const projects = [
     category: 'BotAutomation',
     title: 'Discord Bot Đa năng',
     desc: 'Bot Discord tích hợp AI tự động quản lý server, phân loại ticket hỗ trợ, gửi thông báo sự kiện và tương tác với thành viên cộng đồng 24/7.',
+    detailRoute: '/blog/cheebot-tu-dong-hoa-van-hanh-cho-mot-server-discord-role-sinh-nhat-kenh-gia-song',
   },
   {
     id: 4,
