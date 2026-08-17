@@ -27,7 +27,7 @@ onMounted(async () => {
 <template>
   <section class="section blog-list">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header">
         <p class="tag">Blog</p>
         <h1 class="section-title">Bài viết & Case Study</h1>
         <p class="section-subtitle">

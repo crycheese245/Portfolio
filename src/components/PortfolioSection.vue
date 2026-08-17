@@ -11,6 +11,7 @@ const projects = [
     category: 'Web',
     title: 'Website Quản lý Đại lý Vé số',
     desc: 'Hệ thống quản lý vé số trực tuyến với tính năng theo dõi doanh thu, quản lý kho vé và báo cáo theo thời gian thực.',
+    detailRoute: '/blog/xay-he-thong-quan-ly-dai-ly-ve-so-tu-chon-doi-soat-ket-qua-tinh-thuong-va-xuat-bang-ke-tu-dong',
   },
   {
     id: 2,
