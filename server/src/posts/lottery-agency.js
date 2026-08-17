@@ -6,7 +6,7 @@ export const lotteryAgencyPost = {
 <p>Đây là một trong những dự án mình thấy thú vị nhất về mặt logic nghiệp vụ: phần mềm quản lý cho <b>đại lý vé số tự chọn</b> (kiểu lô đề) khu vực miền Nam. Khác với các app "vé số" demo thường thấy, đây là công cụ vận hành thật — nhân viên nhập tay từng vé khách cược trong ngày, hệ thống tự đối soát với kết quả xổ số chính thức, tính tiền thưởng, và cuối cùng phải xuất ra đúng mẫu <b>"bảng kê cùi vé"</b> bằng giấy mà đại lý nộp lại cho công ty xổ số.</p>
 
 <h2>Bài toán thực tế</h2>
-<p>Vé số tự chọn (Đầu/Đuôi, Đầu/Xỉu, Xỉu/Chủ, bao lô 2-3-4 số...) có luật cược và cách tính thưởng phức tạp hơn nhiều so với vé số truyền thống. Một đại lý xử lý hàng trăm vé mỗi ngày, mỗi vé có thể ứng với nhiều kiểu cược khác nhau, và việc đối soát thủ công bằng tay — dò từng số trong 18 giải của kết quả xổ số — vừa chậm vừa dễ sai sót khi tiền thưởng thực tế liên quan trực tiếp.</p>
+<p>Vé số tự chọn có luật cược và cách tính thưởng phức tạp hơn nhiều so với vé số truyền thống. Một đại lý xử lý hàng trăm vé mỗi ngày, mỗi vé có thể ứng với nhiều kiểu cược khác nhau, và việc đối soát thủ công bằng tay — dò từng số trong 18 giải của kết quả xổ số — vừa chậm vừa dễ sai sót khi tiền thưởng thực tế liên quan trực tiếp.</p>
 
 <h2>Kiến trúc</h2>
 <ul>
