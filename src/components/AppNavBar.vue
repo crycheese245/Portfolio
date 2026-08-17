@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
@@ -29,6 +29,13 @@ const handleScroll = () => {
     }
   }
 }
+
+// The section-scroll nav items (Trang chủ/Giới thiệu/Dự án/Dịch vụ) only make
+// sense on "/" — clear the stale active section when navigating to another
+// page (e.g. /blog), otherwise its last value keeps showing as active there.
+watch(() => route.path, (path) => {
+  if (path !== '/') activeSection.value = ''
+})
 
 const scrollTo = (id) => {
   isMobileOpen.value = false
@@ -127,8 +134,9 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   right: 0;
   z-index: 1000;
   padding: 22px 0;
-  transition: padding 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  transition: padding 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, border-color 0.35s ease;
   background: transparent;
+  border-bottom: 1px solid var(--border);
 }
 
 .navbar--scrolled {
