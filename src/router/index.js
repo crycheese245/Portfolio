@@ -20,6 +20,16 @@ const routes = [
     component: () => import('../pages/BlogPostPage.vue'),
   },
   {
+    path: '/chinh-sach-bao-mat',
+    name: 'privacy',
+    component: () => import('../pages/PrivacyPolicyPage.vue'),
+  },
+  {
+    path: '/dieu-khoan-dich-vu',
+    name: 'terms',
+    component: () => import('../pages/TermsPage.vue'),
+  },
+  {
     path: '/quan-tri/dang-nhap',
     name: 'admin-login',
     component: () => import('../pages/AdminLoginPage.vue'),

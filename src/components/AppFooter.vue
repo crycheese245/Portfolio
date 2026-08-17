@@ -107,8 +107,8 @@ const year = new Date().getFullYear()
       <div class="container footer__bottom-inner">
         <p>&copy; {{ year }} CheeHouse. Bảo lưu mọi quyền.</p>
         <div class="footer__bottom-links">
-          <a href="#">Chính sách bảo mật</a>
-          <a href="#">Điều khoản dịch vụ</a>
+          <RouterLink to="/chinh-sach-bao-mat">Chính sách bảo mật</RouterLink>
+          <RouterLink to="/dieu-khoan-dich-vu">Điều khoản dịch vụ</RouterLink>
         </div>
       </div>
     </div>
