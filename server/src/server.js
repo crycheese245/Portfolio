@@ -6,6 +6,7 @@ import { uploadsDir } from './paths.js'
 import { authRoutes } from './routes/authRoutes.js'
 import { postRoutes } from './routes/postRoutes.js'
 import { uploadRoutes } from './routes/uploadRoutes.js'
+import { prerenderRoutes } from './prerenderRoutes.js'
 
 const app = express()
 
@@ -20,6 +21,10 @@ app.get('/api/health', (_request, response) => {
 app.use('/api/admin', authRoutes)
 app.use('/api', postRoutes)
 app.use('/api', uploadRoutes)
+
+// Bot-only prerendered pages — nginx proxies crawler user-agents straight to
+// these routes for the SPA's public paths; real browsers never hit them.
+app.use(prerenderRoutes)
 
 app.use((error, _request, response, _next) => {
   console.error('[server] Unhandled error:', error)
