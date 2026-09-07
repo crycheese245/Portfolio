@@ -55,6 +55,42 @@ function send(res, opts) {
   res.send(layout(opts))
 }
 
+// ── sitemap.xml ──────────────────────────────────────────────────────────────
+
+prerenderRoutes.get('/sitemap.xml', async (_req, res) => {
+  const posts = await BlogPost.findAll({ where: { published: true }, order: [['createdAt', 'DESC']] })
+
+  const staticUrls = [
+    { loc: `${SITE_URL}/`, changefreq: 'weekly', priority: '1.0' },
+    { loc: `${SITE_URL}/blog`, changefreq: 'weekly', priority: '0.8' },
+    { loc: `${SITE_URL}/du-an/cheeemu`, changefreq: 'monthly', priority: '0.7' },
+    { loc: `${SITE_URL}/chinh-sach-bao-mat`, changefreq: 'yearly', priority: '0.3' },
+    { loc: `${SITE_URL}/dieu-khoan-dich-vu`, changefreq: 'yearly', priority: '0.3' }
+  ]
+
+  const postUrls = posts.map((p) => ({
+    loc: `${SITE_URL}/blog/${esc(p.slug)}`,
+    lastmod: formatDate(p.updatedAt || p.createdAt),
+    changefreq: 'monthly',
+    priority: '0.6'
+  }))
+
+  const urlXml = [...staticUrls, ...postUrls]
+    .map((u) => [
+      '  <url>',
+      `    <loc>${esc(u.loc)}</loc>`,
+      u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>` : '',
+      `    <changefreq>${u.changefreq}</changefreq>`,
+      `    <priority>${u.priority}</priority>`,
+      '  </url>'
+    ].filter(Boolean).join('\n'))
+    .join('\n')
+
+  res.setHeader('Content-Type', 'application/xml; charset=utf-8')
+  res.setHeader('Cache-Control', 'public, max-age=3600')
+  res.send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlXml}\n</urlset>`)
+})
+
 // ── Homepage ─────────────────────────────────────────────────────────────────
 
 prerenderRoutes.get('/', async (_req, res) => {
