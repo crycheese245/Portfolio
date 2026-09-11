@@ -40,25 +40,25 @@ const marqueeItems = [...testimonials, ...testimonials]
           trong các dự án thiết kế và phát triển sản phẩm.
         </p>
       </div>
-    </div>
 
-    <div class="testimonial__marquee reveal">
-      <div class="testimonial__track">
-        <div v-for="(t, i) in marqueeItems" :key="i" class="testimonial-card">
-          <div class="testimonial-card__top">
-            <strong class="testimonial-card__name">{{ t.name }}</strong>
-            <span class="testimonial-card__badge">{{ t.avatar }}</span>
+      <div class="testimonial__marquee reveal">
+        <div class="testimonial__track">
+          <div v-for="(t, i) in marqueeItems" :key="i" class="testimonial-card">
+            <div class="testimonial-card__top">
+              <strong class="testimonial-card__name">{{ t.name }}</strong>
+              <span class="testimonial-card__badge">{{ t.avatar }}</span>
+            </div>
+
+            <div class="testimonial-card__stars">
+              <svg v-for="s in t.rating" :key="s" width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24" stroke="none">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+
+            <p class="testimonial-card__text">"{{ t.text }}"</p>
+
+            <span class="testimonial-card__role">{{ t.role }}</span>
           </div>
-
-          <div class="testimonial-card__stars">
-            <svg v-for="s in t.rating" :key="s" width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24" stroke="none">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
-
-          <p class="testimonial-card__text">"{{ t.text }}"</p>
-
-          <span class="testimonial-card__role">{{ t.role }}</span>
         </div>
       </div>
     </div>
