@@ -8,6 +8,25 @@ const stats = [
   { value: 10, suffix: '+', label: 'Khách hàng hài lòng' },
 ]
 
+const heroServices = [
+  {
+    label: 'Phát triển Web',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  },
+  {
+    label: 'Bot & Automation',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>`,
+  },
+  {
+    label: 'Tích hợp AI',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`,
+  },
+  {
+    label: 'Phát triển Mobile',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>`,
+  },
+]
+
 const countRefs = ref([])
 const isLoaded = ref(false)
 
@@ -72,6 +91,19 @@ onMounted(() => {
           </div>
         </div>
       </div>
+
+      <!-- Right: Service highlights -->
+      <div class="hero__services" :class="{ 'hero__services--show': isLoaded }">
+        <div
+          v-for="(service, i) in heroServices"
+          :key="service.label"
+          class="hero__service-card"
+          :style="{ animationDelay: `${i * 0.6}s` }"
+        >
+          <div class="hero__service-icon" v-html="service.icon" />
+          <span>{{ service.label }}</span>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -87,8 +119,57 @@ onMounted(() => {
 }
 
 .hero__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
   position: relative;
   z-index: 1;
+}
+
+/* ------ Service highlights ------ */
+.hero__services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s;
+}
+.hero__services--show { opacity: 1; transform: translateX(0); }
+
+.hero__service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 24px 20px;
+  border-radius: var(--radius-lg);
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  animation: heroServiceFloat 5s ease-in-out infinite;
+}
+
+.hero__service-card:nth-child(even) { margin-top: 28px; }
+
+.hero__service-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius);
+  background: var(--primary-100);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes heroServiceFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 /* ------ Content ------ */
@@ -206,6 +287,11 @@ onMounted(() => {
   border-left: 1px solid var(--border);
 }
 
+@media (max-width: 1024px) {
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__services { max-width: 420px; margin: 0 auto; }
+}
+
 @media (max-width: 768px) {
   .hero { padding: 100px 0 60px; }
   .hero__inner { text-align: center; }
@@ -213,5 +299,8 @@ onMounted(() => {
   .hero__role { margin: 0 auto 36px; }
   .hero__actions { justify-content: center; }
   .hero__stats { justify-content: center; }
+
+  .hero__service-card { align-items: center; text-align: center; }
+  .hero__service-card:nth-child(even) { margin-top: 0; }
 }
 </style>
