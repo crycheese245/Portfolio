@@ -1,4 +1,5 @@
 <script setup>
+import PromoSlider from '../components/PromoSlider.vue'
 import HeroSection from '../components/HeroSection.vue'
 import AboutSection from '../components/AboutSection.vue'
 import WorkProcess from '../components/WorkProcess.vue'
@@ -14,6 +15,7 @@ useScrollReveal()
 
 <template>
   <main>
+    <PromoSlider />
     <HeroSection />
     <AboutSection />
     <WorkProcess />

@@ -45,24 +45,24 @@ onMounted(() => {
         </div>
 
         <h1 class="hero__title" :class="{ 'hero__title--show': isLoaded }">
-          Xin chào, tôi là<br />
-          <span class="hero__name">Hoàng Trí Dũng</span>
+          Xin chào, chúng tôi là<br />
+          <span class="hero__name">CheeHouse</span>
         </h1>
 
         <p class="hero__role" :class="{ 'hero__role--show': isLoaded }">
-          Tôi là Full Stack Developer chuyên về <span class="hero__highlight">AI &amp; Automation</span>,
-          tập trung xây dựng website và hệ thống Bot tự động hóa cho cửa hàng nhỏ, mang đến trải nghiệm kỹ thuật số thông minh và hiệu quả.
+          CheeHouse chuyên <span class="hero__highlight">thiết kế website &amp; tự động hóa AI</span>
+          cho cửa hàng nhỏ và cá nhân kinh doanh — từ web bán hàng chuẩn SEO đến chatbot Zalo/Messenger/Discord, mang đến trải nghiệm kỹ thuật số thông minh và hiệu quả.
         </p>
 
         <div class="hero__actions" :class="{ 'hero__actions--show': isLoaded }">
-          <button class="btn btn-primary" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">
-            Xem dự án
+          <button class="btn btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+            Xem dịch vụ
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-          <a class="btn btn-outline" href="/cv.pdf" download>
+          <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Tải CV
-          </a>
+            Nhận tư vấn
+          </button>
         </div>
 
         <!-- Stats -->
@@ -79,11 +79,11 @@ onMounted(() => {
         <div class="hero__photo-frame">
           <img
             :src="avatarSrc"
-            alt="Hoang Tri Dung"
+            alt="CheeHouse"
             class="hero__photo"
             @error="$event.target.style.display = 'none'"
           />
-          <div class="hero__photo-fallback">HTD</div>
+          <div class="hero__photo-fallback">CH</div>
           <!-- Floating card -->
           <div class="hero__card hero__card--tl">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
@@ -107,11 +107,11 @@ onMounted(() => {
 
 <style scoped>
 .hero {
-  min-height: 100vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
   position: relative;
-  padding: 120px 0 80px;
+  padding: 64px 0 80px;
   overflow: hidden;
 }
 

@@ -94,7 +94,7 @@ prerenderRoutes.get('/sitemap.xml', async (_req, res) => {
 // ── Homepage ─────────────────────────────────────────────────────────────────
 
 prerenderRoutes.get('/', async (_req, res) => {
-  const description = 'CheeHouse – Hoang Tri Dung Portfolio – Full Stack Developer & Flutterer'
+  const description = 'CheeHouse – Thiết kế website & tự động hóa AI cho cửa hàng nhỏ: web bán hàng chuẩn SEO, chatbot Zalo/Messenger/Discord, tích hợp AI.'
   const posts = await BlogPost.findAll({ where: { published: true }, order: [['createdAt', 'DESC']], limit: 5 })
 
   const postListHtml = posts.length
@@ -104,15 +104,24 @@ prerenderRoutes.get('/', async (_req, res) => {
     : ''
 
   send(res, {
-    title: 'CheeHouse | Portfolio',
+    title: 'CheeHouse – Thiết kế Website & Tự động hóa AI cho cửa hàng nhỏ',
     description,
     canonical: SITE_URL,
     bodyHtml: [
-      '<h1>Hoàng Trí Dũng — Full Stack Developer</h1>',
-      '<p>Tôi là Full Stack Developer chuyên về AI &amp; Automation, tập trung xây dựng website và hệ thống Bot tự động hóa cho cửa hàng nhỏ, mang đến trải nghiệm kỹ thuật số thông minh và hiệu quả.</p>',
-      '<h2>Về tôi</h2>',
-      '<p>Bạn cần một website chuyên nghiệp hay một trợ lý ảo thông minh? Tôi ở đây để giúp bạn. Tôi tập trung vào việc tạo ra các sản phẩm số thực tế, giúp các cửa hàng nhỏ và cá nhân vận hành hiệu quả hơn.</p>',
-      '<p>Từ việc xây dựng website chuẩn SEO đến tích hợp AI thông minh hay thiết lập các Bot tự động trên Zalo, Messenger, Discord — tôi đảm bảo sản phẩm không chỉ đẹp mắt mà còn mang lại giá trị thực tế cho khách hàng.</p>',
+      '<h1>CheeHouse — Thiết kế Website &amp; Tự động hóa AI</h1>',
+      '<p>CheeHouse chuyên thiết kế website và xây dựng hệ thống tự động hóa AI cho cửa hàng nhỏ và cá nhân kinh doanh — từ web bán hàng chuẩn SEO đến chatbot Zalo/Messenger/Discord, mang đến trải nghiệm kỹ thuật số thông minh và hiệu quả.</p>',
+      '<h2>Dịch vụ</h2>',
+      '<ul>',
+      '  <li>Phát triển Web — website chuẩn SEO, hiệu năng cao với Vue 3, Node.js và MySQL.</li>',
+      '  <li>Phát triển Bot &amp; Automation — bot chăm sóc khách hàng 24/7 trên Messenger, Zalo, Discord.</li>',
+      '  <li>Tích hợp AI &amp; Tự động hóa — đưa ChatGPT/Gemini vào quy trình đặt hàng, phân loại yêu cầu, thông báo.</li>',
+      '  <li>Phát triển Mobile — ứng dụng iOS/Android với Flutter.</li>',
+      '</ul>',
+      '<h2>Sản phẩm của CheeHouse</h2>',
+      '<ul>',
+      '  <li><a href="https://emu.cheehouse.io.vn">CheeEmu</a> — nền tảng chơi game Java J2ME trực tiếp trên trình duyệt.</li>',
+      '  <li><a href="https://store.cheehouse.io.vn">CheeHouse Store</a> — trang bán hàng của CheeHouse.</li>',
+      '</ul>',
       '<h2>Dự án nổi bật</h2>',
       '<ul>',
       `  <li><a href="${SITE_URL}/blog/xay-he-thong-quan-ly-dai-ly-ve-so-tu-chon-doi-soat-ket-qua-tinh-thuong-va-xuat-bang-ke-tu-dong">Website Quản lý Đại lý Vé số</a></li>`,

@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 
 const testimonials = [
   {
-    text: 'Phần mềm rất dễ sử dụng, ngay cả với những nhân viên không rành công nghệ tại đại lý của tôi. Dũng hỗ trợ rất tận tâm, đảm bảo hệ thống luôn hoạt động ổn định. Đây thực sự là công cụ đắc lực giúp tôi quản lý hàng nghìn tờ vé mỗi ngày mà không sợ sai sót.',
+    text: 'Phần mềm rất dễ sử dụng, ngay cả với những nhân viên không rành công nghệ tại đại lý của tôi. Đội ngũ CheeHouse hỗ trợ rất tận tâm, đảm bảo hệ thống luôn hoạt động ổn định. Đây thực sự là công cụ đắc lực giúp tôi quản lý hàng nghìn tờ vé mỗi ngày mà không sợ sai sót.',
     name: 'Hữu Nhật',
     role: 'Chủ đại lý vé số Hữu Nhật',
     avatar: 'HN',
@@ -39,7 +39,7 @@ const next = () => { current.value = (current.value + 1) % testimonials.length }
         <p class="tag">Đánh giá khách hàng</p>
         <h2 class="section-title">Nhận xét</h2>
         <p class="section-subtitle">
-          Những phản hồi thực tế từ khách hàng đã tin tưởng hợp tác cùng tôi
+          Những phản hồi thực tế từ khách hàng đã tin tưởng hợp tác cùng CheeHouse
           trong các dự án thiết kế và phát triển sản phẩm.
         </p>
       </div>

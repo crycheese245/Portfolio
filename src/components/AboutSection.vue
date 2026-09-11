@@ -44,12 +44,12 @@ const skills = ['Vue.js', 'React', 'Node.js', 'Flutter', 'SQL', 'Figma']
         <!-- Left: Photo -->
         <div class="about__photo-col reveal-left">
           <div class="about__photo-wrap">
-            <img :src="avatarSrc" alt="Hoang Tri Dung" class="about__photo"
+            <img :src="avatarSrc" alt="CheeHouse" class="about__photo"
             @error="$event.target.parentElement.classList.add('no-photo')" />
-            <div class="about__photo-fallback">HTD</div>
+            <div class="about__photo-fallback">CH</div>
             <div class="about__photo-badge">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg>
-              <span>Full Stack<br/>Developer</span>
+              <span>Web &amp; AI<br/>Automation</span>
             </div>
           </div>
 
@@ -71,20 +71,20 @@ const skills = ['Vue.js', 'React', 'Node.js', 'Flutter', 'SQL', 'Figma']
 
         <!-- Right: Text -->
         <div class="about__text-col reveal-right">
-          <p class="tag">Về tôi</p>
+          <p class="tag">Về CheeHouse</p>
           <h2 class="about__title">
-            Chuyên gia <span class="text-primary">Phát triển Web</span><br />
+            Đội ngũ <span class="text-primary">Phát triển Web</span><br />
             &amp; Giải pháp AI cho Kinh doanh Nhỏ
           </h2>
           <p class="about__desc">
-            Bạn cần một website chuyên nghiệp hay một trợ lý ảo thông minh? Tôi ở đây để giúp bạn.
-            Tôi tập trung vào việc tạo ra các sản phẩm số thực tế, giúp các cửa hàng nhỏ và cá nhân
+            Bạn cần một website chuyên nghiệp hay một trợ lý ảo thông minh? CheeHouse ở đây để giúp bạn.
+            Chúng tôi tập trung tạo ra các sản phẩm số thực tế, giúp các cửa hàng nhỏ và cá nhân
             tối ưu hóa vận hành thông qua công nghệ.
           </p>
           <p class="about__desc">
             Từ việc xây dựng website chuẩn SEO đến tích hợp AI thông minh hay thiết lập các Bot tự động
-            trên Zalo, Messenger, Discord — tôi đảm bảo sản phẩm không chỉ đẹp mắt mà còn mang lại
-            giá trị kinh tế thực sự cho hành trình sáng tạo của bạn.
+            trên Zalo, Messenger, Discord — CheeHouse đảm bảo sản phẩm không chỉ đẹp mắt mà còn mang lại
+            giá trị kinh tế thực sự cho hoạt động kinh doanh của bạn.
           </p>
 
           <div class="about__skills">
@@ -92,8 +92,8 @@ const skills = ['Vue.js', 'React', 'Node.js', 'Flutter', 'SQL', 'Figma']
           </div>
 
           <div class="about__actions">
-            <button class="btn btn-primary" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">
-              Dự án của tôi
+            <button class="btn btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+              Dịch vụ của chúng tôi
             </button>
             <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
               Liên hệ

@@ -87,10 +87,10 @@ const closeModal = () => {
   <section id="portfolio" class="section portfolio">
     <div class="container">
       <div class="section-header reveal">
-        <p class="tag">Dự án của tôi</p>
+        <p class="tag">Dự án của chúng tôi</p>
         <h2 class="section-title">Dự án nổi bật</h2>
         <p class="section-subtitle">
-          Những dự án tiêu biểu kết hợp giữa tư duy thiết kế và sức mạnh công nghệ. Tôi giúp bạn hiện thực hóa ý tưởng qua các hệ thống Web App hiện đại và trợ lý ảo AI hoạt động đa nền tảng.
+          Những dự án tiêu biểu kết hợp giữa tư duy thiết kế và sức mạnh công nghệ. CheeHouse giúp bạn hiện thực hóa ý tưởng qua các hệ thống Web App hiện đại và trợ lý ảo AI hoạt động đa nền tảng.
         </p>
       </div>
 

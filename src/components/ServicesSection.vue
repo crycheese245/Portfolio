@@ -22,7 +22,7 @@ const services = [
   {
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>`,
     title: 'Phát triển Mobile',
-    desc: 'Sở hữu ứng dụng di động riêng chuyên nghiệp trên cả iPhone và Android nhờ công nghệ Flutter. Tôi giúp bạn tiếp cận khách hàng mọi lúc mọi nơi với ứng dụng có tốc độ cao, giao diện đẹp mắt và dễ dàng quản lý.',
+    desc: 'Sở hữu ứng dụng di động riêng chuyên nghiệp trên cả iPhone và Android nhờ công nghệ Flutter. CheeHouse giúp bạn tiếp cận khách hàng mọi lúc mọi nơi với ứng dụng có tốc độ cao, giao diện đẹp mắt và dễ dàng quản lý.',
   },
 ]
 
@@ -38,7 +38,7 @@ const toggle = (i) => {
         <!-- Left -->
         <div class="services__left reveal-left">
           <p class="tag">DỊCH VỤ</p>
-          <h2 class="section-title" style="text-align:left">Giải pháp tôi mang lại</h2>
+          <h2 class="section-title" style="text-align:left">Giải pháp CheeHouse mang lại</h2>
           <p class="section-subtitle" style="text-align:left">
             Thiết kế và phát triển các sản phẩm web tích hợp Trí tuệ nhân tạo. Giải pháp toàn diện từ giao diện chuyên nghiệp đến hệ thống vận hành tự động đa nền tảng.
           </p>

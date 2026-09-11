@@ -14,7 +14,7 @@
         </h2>
         <p class="cta__desc">
           Bạn muốn số hóa cửa hàng hay tự động hóa việc chăm sóc khách hàng?<br class="hidden-mobile" />
-          Hãy chia sẻ ý tưởng của bạn, tôi sẽ giúp bạn biến chúng thành công cụ kinh doanh đắc lực.
+          Hãy chia sẻ ý tưởng của bạn, CheeHouse sẽ giúp bạn biến chúng thành công cụ kinh doanh đắc lực.
         </p>
         <button
           class="btn btn-white cta__btn"

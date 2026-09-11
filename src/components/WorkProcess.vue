@@ -4,25 +4,25 @@ const steps = [
     num: '01',
     icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>`,
     title: 'Phân tích & Tư vấn',
-    desc: 'Lắng nghe nhu cầu kinh doanh của bạn để đề xuất giải pháp công nghệ phù hợp nhất. Tôi tập trung vào việc tìm ra cách tối ưu hóa vận hành, dù đó là một website bán hàng hay một hệ thống tự động hóa bằng AI.',
+    desc: 'Lắng nghe nhu cầu kinh doanh của bạn để đề xuất giải pháp công nghệ phù hợp nhất. CheeHouse tập trung vào việc tìm ra cách tối ưu hóa vận hành, dù đó là một website bán hàng hay một hệ thống tự động hóa bằng AI.',
   },
   {
     num: '02',
     icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
     title: 'Giải pháp & Kỹ thuật',
-    desc: 'Xây dựng cấu trúc hệ thống và lựa chọn công nghệ lõi. Tại đây, tôi sẽ thiết kế kịch bản cho Chatbot (Zalo/Messenger/Discord) hoặc tích hợp các mô hình AI để giải quyết đúng bài toán mà bạn đang gặp phải.',
+    desc: 'Xây dựng cấu trúc hệ thống và lựa chọn công nghệ lõi. Tại đây, CheeHouse sẽ thiết kế kịch bản cho Chatbot (Zalo/Messenger/Discord) hoặc tích hợp các mô hình AI để giải quyết đúng bài toán mà bạn đang gặp phải.',
   },
   {
     num: '03',
     icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>`,
     title: 'Phát triển & Tối ưu',
-    desc: 'Tiến hành lập trình và xây dựng giao diện. Tôi đảm bảo sản phẩm không chỉ có code sạch, hoạt động ổn định mà còn phải dễ dàng sử dụng đối với cả chủ cửa hàng và khách hàng cuối.',
+    desc: 'Tiến hành lập trình và xây dựng giao diện. CheeHouse đảm bảo sản phẩm không chỉ có code sạch, hoạt động ổn định mà còn phải dễ dàng sử dụng đối với cả chủ cửa hàng và khách hàng cuối.',
   },
   {
     num: '04',
     icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.93a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>`,
     title: 'Triển khai & Đồng hành',
-    desc: 'Bàn giao sản phẩm hoàn thiện và hướng dẫn bạn cách làm chủ công nghệ. Tôi luôn sẵn sàng hỗ trợ kỹ thuật, bảo trì và nâng cấp tính năng để sản phẩm luôn mang lại giá trị bền vững cho bạn.',
+    desc: 'Bàn giao sản phẩm hoàn thiện và hướng dẫn bạn cách làm chủ công nghệ. CheeHouse luôn sẵn sàng hỗ trợ kỹ thuật, bảo trì và nâng cấp tính năng để sản phẩm luôn mang lại giá trị bền vững cho bạn.',
   },
 ]
 </script>
@@ -33,12 +33,12 @@ const steps = [
       <div class="process__layout">
         <!-- Left: heading -->
         <div class="process__heading reveal-left">
-          <p class="tag">Cách tôi làm việc</p>
+          <p class="tag">Cách CheeHouse làm việc</p>
           <h2 class="section-title" style="text-align:left">
             Quy trình làm việc
           </h2>
           <p class="section-subtitle" style="text-align:left">
-            Từ ý tưởng đến sản phẩm thực tế chỉ qua 4 bước chuyên nghiệp. Tôi đồng hành cùng bạn để đưa AI và tự động hóa vào quy trình bán hàng hằng ngày.
+            Từ ý tưởng đến sản phẩm thực tế chỉ qua 4 bước chuyên nghiệp. CheeHouse đồng hành cùng bạn để đưa AI và tự động hóa vào quy trình bán hàng hằng ngày.
           </p>
         </div>
 
