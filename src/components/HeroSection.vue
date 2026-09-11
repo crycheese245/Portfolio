@@ -91,10 +91,6 @@ onMounted(() => {
   z-index: 1;
 }
 
-.hero__content {
-  max-width: 700px;
-}
-
 /* ------ Content ------ */
 .hero__badge {
   margin-bottom: 24px;
@@ -214,7 +210,6 @@ onMounted(() => {
   .hero { padding: 100px 0 60px; }
   .hero__inner { text-align: center; }
 
-  .hero__content { max-width: 100%; }
   .hero__role { margin: 0 auto 36px; }
   .hero__actions { justify-content: center; }
   .hero__stats { justify-content: center; }
