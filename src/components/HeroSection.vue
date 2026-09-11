@@ -114,7 +114,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   position: relative;
-  margin-top: 64px;
+  margin-top: 86px;
   padding: 64px 0 80px;
   overflow: hidden;
 }
