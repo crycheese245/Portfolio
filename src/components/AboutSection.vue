@@ -1,8 +1,13 @@
 <script setup>
 import { ref } from 'vue'
 
-const avatarSrc = '/images/avatar.jpg'
+const logoSrc = '/images/cheehouse-logo.png'
 const activeSlide = ref(0)
+const highlights = [
+  { label: 'Tận tâm hỗ trợ 24/7' },
+  { label: 'Đúng tiến độ cam kết' },
+  { label: 'Báo giá minh bạch' },
+]
 const socialLinks = [
   {
     name: 'Facebook', url: '#',
@@ -41,15 +46,20 @@ const skills = ['Vue.js', 'React', 'Node.js', 'Flutter', 'SQL', 'Figma']
   <section id="about" class="section about">
     <div class="container">
       <div class="about__inner">
-        <!-- Left: Photo -->
+        <!-- Left: Brand card -->
         <div class="about__photo-col reveal-left">
-          <div class="about__photo-wrap">
-            <img :src="avatarSrc" alt="CheeHouse" class="about__photo"
-            @error="$event.target.parentElement.classList.add('no-photo')" />
-            <div class="about__photo-fallback">CH</div>
-            <div class="about__photo-badge">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg>
-              <span>Web &amp; AI<br/>Automation</span>
+          <div class="about__brand-card">
+            <div class="about__brand-logo-wrap">
+              <img :src="logoSrc" alt="CheeHouse" class="about__brand-logo" />
+            </div>
+            <h3 class="about__brand-name">CheeHouse</h3>
+            <p class="about__brand-tagline">Tận tâm - Chỉn chu - Giá hợp lý</p>
+
+            <div class="about__brand-highlights">
+              <div v-for="h in highlights" :key="h.label" class="about__brand-highlight">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ h.label }}</span>
+              </div>
             </div>
           </div>
 
@@ -118,61 +128,64 @@ const skills = ['Vue.js', 'React', 'Node.js', 'Flutter', 'SQL', 'Figma']
   align-items: center;
 }
 
-/* ---- Photo ---- */
-.about__photo-wrap {
-  position: relative;
+/* ---- Brand card ---- */
+.about__brand-card {
   width: 100%;
   max-width: 380px;
   margin: 0 auto;
+  padding: 48px 32px;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(160deg, var(--primary-100), var(--secondary-blue) 60%, var(--secondary-mint));
+  box-shadow: var(--shadow-xl);
+  text-align: center;
 }
 
-.about__photo {
+.about__brand-logo-wrap {
+  width: 108px;
+  height: 108px;
+  margin: 0 auto 20px;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  background: white;
+  box-shadow: var(--shadow-lg);
+}
+
+.about__brand-logo {
   width: 100%;
-  height: 480px;
-  object-fit: cover;
-  border-radius: var(--radius-xl);
-  position: relative;
-  z-index: 1;
+  height: 100%;
+  object-fit: contain;
 }
 
-.about__photo-fallback {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
-  border-radius: var(--radius-xl);
+.about__brand-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.about__brand-tagline {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--text-gray);
+}
+
+.about__brand-highlights {
+  margin-top: 28px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 56px;
-  font-weight: 900;
-  color: var(--primary);
-  z-index: 0;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
 }
 
-.about__photo + .about__photo-fallback { display: none; }
-
-.about__photo-badge {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  background: var(--primary);
-  color: white;
-  border-radius: var(--radius);
-  padding: 14px 18px;
+.about__brand-highlight {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius);
   font-size: 13px;
   font-weight: 600;
-  line-height: 1.4;
-  box-shadow: var(--shadow-primary);
-  z-index: 2;
-  animation: cardFloat 4s ease-in-out infinite;
-}
-
-@keyframes cardFloat {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-8px); }
+  color: var(--text-dark);
 }
 
 .about__social {
