@@ -64,39 +64,41 @@ onUnmounted(stop)
 <template>
   <section class="promo" @mouseenter="stop" @mouseleave="restart">
     <div class="container">
-      <div class="promo__viewport">
-        <div class="promo__track" :style="{ transform: `translateX(-${active * 100}%)` }">
-          <a
-            v-for="slide in slides"
-            :key="slide.key"
-            class="promo__slide"
-            :class="`promo__slide--${slide.theme}`"
-            :href="slide.href"
-            :target="slide.external ? '_blank' : undefined"
-            :rel="slide.external ? 'noopener' : undefined"
-          >
-            <div class="promo__body">
-              <span class="promo__eyebrow">{{ slide.eyebrow }}</span>
-              <h2 class="promo__title">{{ slide.title }}</h2>
-              <p class="promo__desc">{{ slide.desc }}</p>
-              <span class="btn btn-primary promo__cta">
-                {{ slide.cta }}
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-            <div class="promo__media">
-              <img :src="slide.image" :alt="slide.title" @error="$event.target.style.visibility = 'hidden'" />
-            </div>
-          </a>
+      <div class="promo__stage">
+        <div class="promo__viewport">
+          <div class="promo__track" :style="{ transform: `translateX(-${active * 100}%)` }">
+            <a
+              v-for="slide in slides"
+              :key="slide.key"
+              class="promo__slide"
+              :class="`promo__slide--${slide.theme}`"
+              :href="slide.href"
+              :target="slide.external ? '_blank' : undefined"
+              :rel="slide.external ? 'noopener' : undefined"
+            >
+              <div class="promo__body">
+                <span class="promo__eyebrow">{{ slide.eyebrow }}</span>
+                <h2 class="promo__title">{{ slide.title }}</h2>
+                <p class="promo__desc">{{ slide.desc }}</p>
+                <span class="btn btn-primary promo__cta">
+                  {{ slide.cta }}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+              <div class="promo__media">
+                <img :src="slide.image" :alt="slide.title" @error="$event.target.style.visibility = 'hidden'" />
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <button class="promo__arrow promo__arrow--prev" aria-label="Slide trước" @click.prevent="prev">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <button class="promo__arrow promo__arrow--next" aria-label="Slide kế" @click.prevent="next">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
+        <button class="promo__arrow promo__arrow--prev" aria-label="Slide trước" @click.prevent="prev">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="promo__arrow promo__arrow--next" aria-label="Slide kế" @click.prevent="next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
 
       <div class="promo__dots">
         <button
@@ -120,6 +122,10 @@ onUnmounted(stop)
 
 @media (max-width: 768px) {
   .promo { padding: 12px 0 4px; }
+}
+
+.promo__stage {
+  position: relative;
 }
 
 .promo__viewport {
@@ -203,7 +209,6 @@ onUnmounted(stop)
 .promo__arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -216,8 +221,8 @@ onUnmounted(stop)
   transition: background 0.2s, transform 0.2s;
 }
 .promo__arrow:hover { background: #fff; }
-.promo__arrow--prev { left: 8px; }
-.promo__arrow--next { right: 8px; }
+.promo__arrow--prev { left: 0; transform: translate(-50%, -50%); }
+.promo__arrow--next { right: 0; transform: translate(50%, -50%); }
 
 .promo__dots {
   display: flex;
