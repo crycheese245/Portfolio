@@ -45,6 +45,13 @@ function layout({ title, description, canonical, image, bodyHtml }) {
 </head>
 <body>
 ${bodyHtml}
+<footer>
+  <p>Hệ thống CheeHouse:
+    <a href="https://emu.cheehouse.io.vn">CheeEmu — Giả lập game J2ME</a> ·
+    <a href="https://store.cheehouse.io.vn">CheeHouse Store — Cửa hàng</a>
+  </p>
+  <p>&copy; ${new Date().getFullYear()} CheeHouse</p>
+</footer>
 </body>
 </html>`
 }

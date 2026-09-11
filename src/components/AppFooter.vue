@@ -103,6 +103,15 @@ const year = new Date().getFullYear()
       </div>
     </div>
 
+    <div class="footer__network">
+      <div class="container footer__network-inner">
+        <span class="footer__network-label">Hệ thống CheeHouse:</span>
+        <a href="https://emu.cheehouse.io.vn" target="_blank" rel="noopener">CheeEmu — Giả lập game J2ME</a>
+        <span class="footer__network-sep" aria-hidden="true">•</span>
+        <a href="https://store.cheehouse.io.vn" target="_blank" rel="noopener">CheeHouse Store — Cửa hàng</a>
+      </div>
+    </div>
+
     <div class="footer__bottom">
       <div class="container footer__bottom-inner">
         <p>&copy; {{ year }} CheeHouse. Bảo lưu mọi quyền.</p>
@@ -209,6 +218,33 @@ const year = new Date().getFullYear()
   border-color: var(--primary);
   color: white;
 }
+
+.footer__network {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 18px 0;
+}
+
+.footer__network-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.footer__network-label {
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+}
+
+.footer__network-inner a {
+  color: rgba(255,255,255,0.6);
+  transition: color 0.2s;
+}
+
+.footer__network-inner a:hover { color: white; }
+
+.footer__network-sep { color: rgba(255,255,255,0.25); }
 
 .footer__bottom {
   border-top: 1px solid rgba(255,255,255,0.08);
