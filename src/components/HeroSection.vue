@@ -12,6 +12,25 @@ const avatarSrc = '/images/avatar.jpg'
 const countRefs = ref([])
 const isLoaded = ref(false)
 
+const authorSocialLinks = [
+  {
+    name: 'Facebook', url: '#',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
+  },
+  {
+    name: 'GitHub', url: 'https://github.com/crycheese245',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>`,
+  },
+  {
+    name: 'Zalo', url: 'https://zalo.me/0352025524',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M20 2H4C2.9 2 2 2.9 2 4v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 13H9.41l8.09-8H6V5h12l-8.09 8H18v2z"/></svg>`,
+  },
+  {
+    name: 'YouTube', url: 'https://www.youtube.com/@cheehouse-245',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`,
+  },
+]
+
 onMounted(() => {
   setTimeout(() => {
     isLoaded.value = true
@@ -74,30 +93,43 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- Right: Profile photo -->
-      <div class="hero__photo-wrap" :class="{ 'hero__photo-wrap--show': isLoaded }">
-        <div class="hero__photo-frame">
-          <img
-            :src="avatarSrc"
-            alt="CheeHouse"
-            class="hero__photo"
-            @error="$event.target.style.display = 'none'"
-          />
-          <div class="hero__photo-fallback">CH</div>
-          <!-- Floating card -->
-          <div class="hero__card hero__card--tl">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            <div>
-              <strong>3+ Năm</strong>
-              <span>Kinh nghiệm</span>
-            </div>
+    </div>
+
+    <!-- Author card -->
+    <div class="container">
+      <div class="hero__author" :class="{ 'hero__author--show': isLoaded }">
+        <div class="hero__author-top">
+          <div class="hero__author-avatar-wrap">
+            <img
+              :src="avatarSrc"
+              alt="CheeHouse"
+              class="hero__author-avatar"
+              @error="$event.target.style.display = 'none'"
+            />
+            <div class="hero__author-avatar-fallback">CH</div>
           </div>
-          <div class="hero__card hero__card--br">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <div>
-              <strong>10+ Dự án</strong>
-              <span>Đã hoàn thành</span>
-            </div>
+          <div class="hero__author-info">
+            <h3 class="hero__author-name">CheeHouse</h3>
+            <p class="hero__author-label">Về chúng tôi</p>
+            <p class="hero__author-tagline">Tận tâm - Chỉn chu - Giá hợp lý</p>
+          </div>
+        </div>
+        <div class="hero__author-row">
+          <button class="hero__author-link" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">
+            Xem tất cả dự án
+          </button>
+          <div class="hero__author-social">
+            <a
+              v-for="s in authorSocialLinks"
+              :key="s.name"
+              :href="s.url"
+              :aria-label="s.name"
+              class="hero__author-social-icon"
+              target="_blank"
+              rel="noopener"
+            >
+              <span v-html="s.svg" />
+            </a>
           </div>
         </div>
       </div>
@@ -109,19 +141,21 @@ onMounted(() => {
 .hero {
   min-height: 88vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 56px;
   position: relative;
   padding: 64px 0 80px;
   overflow: hidden;
 }
 
 .hero__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
   position: relative;
   z-index: 1;
+}
+
+.hero__content {
+  max-width: 700px;
 }
 
 /* ------ Content ------ */
@@ -239,107 +273,127 @@ onMounted(() => {
   border-left: 1px solid var(--border);
 }
 
-/* ------ Photo ------ */
-.hero__photo-wrap {
+/* ------ Author card ------ */
+.hero__author {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
   opacity: 0;
-  transform: translateX(60px) scale(0.95);
-  transition: opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
 }
-.hero__photo-wrap--show { opacity: 1; transform: translateX(0) scale(1); }
+.hero__author--show { opacity: 1; transform: translateY(0); }
 
-.hero__photo-frame {
+.hero__author-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero__author-avatar-wrap {
   position: relative;
-  width: 420px;
-  max-width: 100%;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
 }
 
-.hero__photo {
+.hero__author-avatar {
   width: 100%;
-  height: 520px;
+  height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-xl);
+  border-radius: 50%;
   position: relative;
   z-index: 1;
 }
 
-.hero__photo-fallback {
+.hero__author-avatar-fallback {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
-  border-radius: var(--radius-xl);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 64px;
+  font-size: 20px;
   font-weight: 900;
   color: var(--primary);
   z-index: 0;
 }
 
-.hero__photo + .hero__photo-fallback { display: none; }
+.hero__author-avatar + .hero__author-avatar-fallback { display: none; }
 
-.hero__card {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: white;
-  border-radius: var(--radius);
-  padding: 12px 18px;
-  box-shadow: var(--shadow-lg);
-  z-index: 2;
-  animation: cardFloat 4s ease-in-out infinite;
-}
-
-.hero__card strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
+.hero__author-name {
+  font-size: 19px;
+  font-weight: 800;
   color: var(--text-dark);
 }
 
-.hero__card span {
-  font-size: 12px;
+.hero__author-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 2px 0;
+}
+
+.hero__author-tagline {
+  font-size: 14px;
   color: var(--text-gray);
 }
 
-.hero__card--tl {
-  top: 40px;
-  left: -30px;
-  animation-delay: 0s;
+.hero__author-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.hero__card--br {
-  bottom: 60px;
-  right: -20px;
-  animation-delay: 2s;
+.hero__author-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-style: italic;
 }
 
-@keyframes cardFloat {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
+.hero__author-social {
+  display: flex;
+  gap: 8px;
 }
 
-@media (max-width: 1024px) {
-  .hero__photo-frame { width: 360px; }
-  .hero__photo { height: 450px; }
-  .hero__inner { gap: 40px; }
+.hero__author-social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-gray);
+  transition: var(--transition);
+}
+
+.hero__author-social-icon:hover {
+  background: var(--primary);
+  color: white;
 }
 
 @media (max-width: 768px) {
   .hero { padding: 100px 0 60px; }
-  .hero__inner { grid-template-columns: 1fr; text-align: center; }
+  .hero__inner { text-align: center; }
 
+  .hero__content { max-width: 100%; }
   .hero__role { margin: 0 auto 36px; }
   .hero__actions { justify-content: center; }
   .hero__stats { justify-content: center; }
 
-  .hero__photo-wrap { order: -1; }
-  .hero__photo-frame { width: 280px; }
-  .hero__photo { height: 340px; }
-  .hero__card--tl { left: -10px; }
-  .hero__card--br { right: -10px; }
+  .hero__author { flex-direction: column; text-align: center; }
+  .hero__author-top { flex-direction: column; }
+  .hero__author-row { flex-direction: column; gap: 12px; }
 }
 </style>
