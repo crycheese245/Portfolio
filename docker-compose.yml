@@ -1,0 +1,14 @@
+services:
+  backend:
+    build: ./server
+    container_name: cheehouse-portfolio-backend
+    restart: unless-stopped
+    # Bound to localhost only — nginx (native, same host) proxies to this
+    # port exactly like it did with the PM2-managed process before.
+    ports:
+      - "127.0.0.1:4180:4180"
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server/data:/app/data
+      - ./server/uploads:/app/uploads
