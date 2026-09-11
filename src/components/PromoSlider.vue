@@ -28,7 +28,7 @@ const slides = [
     key: 'store',
     eyebrow: 'Cửa hàng',
     title: 'CheeStore — Mua sắm chính hãng, giá tốt',
-    desc: 'Trang bán hàng của CheeHouse. Sản phẩm được tuyển chọn, thanh toán tiện lợi và hỗ trợ nhanh.',
+    desc: 'Trang bán hàng của CheeHouse. Sắp ra mắt: thẻ bài Pokémon & Yu-Gi-Oh! chính hãng, cùng các sản phẩm được tuyển chọn, thanh toán tiện lợi và hỗ trợ nhanh.',
     cta: 'Ghé cửa hàng',
     href: 'https://store.cheehouse.io.vn',
     image: '/images/Project_PMChatAI_API.png',

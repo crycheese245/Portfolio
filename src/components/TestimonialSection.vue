@@ -75,7 +75,6 @@ const marqueeItems = [...testimonials, ...testimonials]
 
 .testimonial__track {
   display: flex;
-  gap: 24px;
   width: max-content;
   animation: testimonialMarquee 34s linear infinite;
 }
@@ -92,6 +91,7 @@ const marqueeItems = [...testimonials, ...testimonials]
 .testimonial-card {
   flex-shrink: 0;
   width: 340px;
+  margin-right: 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
