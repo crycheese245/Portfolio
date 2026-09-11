@@ -1,7 +1,7 @@
 <script setup>
 const contacts = [
   { name: 'Telegram', href: 'https://t.me/cheehouse', type: 'image', src: '/images/icons/telegram.webp' },
-  { name: 'Zalo', href: 'https://zalo.me/0352025524', type: 'image', src: '/images/icons/zalo.jpg' },
+  { name: 'Zalo', href: 'https://zalo.me/0352025524', type: 'image', src: '/images/icons/zalo.png' },
   { name: 'Gọi điện', href: 'tel:+84352025524', type: 'phone' },
 ]
 </script>
