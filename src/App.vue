@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import AppNavBar from './components/AppNavBar.vue'
 import AppFooter from './components/AppFooter.vue'
+import FloatingContactBar from './components/FloatingContactBar.vue'
 
 const showTop = ref(false)
 const onScroll = () => { showTop.value = window.scrollY > 400 }
@@ -16,6 +17,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     <AppNavBar />
     <RouterView />
     <AppFooter />
+    <FloatingContactBar />
 
     <Transition name="backtop">
       <button v-if="showTop" class="back-top" @click="scrollTop" aria-label="Lên đầu trang">
