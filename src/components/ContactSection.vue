@@ -47,6 +47,8 @@ const socialLinks = [
   },
 ]
 
+const avatarSrc = '/images/avatar.jpg'
+
 const contactInfo = [
   {
     icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
@@ -93,20 +95,42 @@ const contactInfo = [
             </div>
           </div>
 
-          <!-- Social row -->
-          <div class="contact__social">
-            <a
-              v-for="s in socialLinks"
-              :key="s.name"
-              :href="s.url"
-              :aria-label="s.name"
-              class="contact__social-btn"
-              target="_blank"
-              rel="noopener"
-            >
-              <span class="cs-icon" v-html="s.svg" />
-              {{ s.name }}
-            </a>
+          <!-- Author card -->
+          <div class="contact__author">
+            <div class="contact__author-top">
+              <div class="contact__author-avatar-wrap">
+                <img
+                  :src="avatarSrc"
+                  alt="CheeHouse"
+                  class="contact__author-avatar"
+                  @error="$event.target.style.display = 'none'"
+                />
+                <div class="contact__author-avatar-fallback">CH</div>
+              </div>
+              <div class="contact__author-info">
+                <h3 class="contact__author-name">CheeHouse</h3>
+                <p class="contact__author-label">Về chúng tôi</p>
+                <p class="contact__author-tagline">Tận tâm - Chỉn chu - Giá hợp lý</p>
+              </div>
+            </div>
+            <div class="contact__author-row">
+              <button class="contact__author-link" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">
+                Xem tất cả dự án
+              </button>
+              <div class="contact__author-social">
+                <a
+                  v-for="s in socialLinks"
+                  :key="s.name"
+                  :href="s.url"
+                  :aria-label="s.name"
+                  class="contact__author-social-icon"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span v-html="s.svg" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -210,47 +234,117 @@ const contactInfo = [
   color: var(--text-dark);
 }
 
-.contact__social {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+/* ---- Author card ---- */
+.contact__author {
   margin-top: 8px;
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.contact__social {
-  flex-wrap: wrap;
-}
-
-.contact__social-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: 1.5px solid var(--border);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-gray);
-  transition: var(--transition);
-  text-decoration: none;
-}
-
-.contact__social-btn:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: white;
-}
-
-.cs-icon {
+.contact__author-top {
   display: flex;
   align-items: center;
+  gap: 14px;
+}
+
+.contact__author-avatar-wrap {
+  position: relative;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
 }
 
-.cs-icon :deep(svg) {
-  width: 16px;
-  height: 16px;
-  display: block;
+.contact__author-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.contact__author-avatar-fallback {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--primary);
+  z-index: 0;
+}
+
+.contact__author-avatar + .contact__author-avatar-fallback { display: none; }
+
+.contact__author-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.contact__author-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 2px 0;
+}
+
+.contact__author-tagline {
+  font-size: 13px;
+  color: var(--text-gray);
+}
+
+.contact__author-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact__author-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-style: italic;
+}
+
+.contact__author-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.contact__author-social-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-gray);
+  transition: var(--transition);
+}
+
+.contact__author-social-icon :deep(svg) {
+  width: 14px;
+  height: 14px;
+}
+
+.contact__author-social-icon:hover {
+  background: var(--primary);
+  color: white;
 }
 
 /* ---- Form ---- */

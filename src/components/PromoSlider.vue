@@ -3,6 +3,17 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const slides = [
   {
+    key: 'cheehouse',
+    eyebrow: 'CheeHouse',
+    title: 'CheeHouse — Thiết kế Website & Tự động hóa AI',
+    desc: 'Dịch vụ chính của chúng tôi: website chuẩn SEO, chatbot Zalo/Messenger/Discord và tích hợp AI cho cửa hàng nhỏ và cá nhân kinh doanh.',
+    cta: 'Xem dịch vụ',
+    href: '#services',
+    image: '/images/Project_Portfolio_CheeHouse.png',
+    theme: 'cheehouse',
+    external: false,
+  },
+  {
     key: 'emu',
     eyebrow: 'Sản phẩm nổi bật',
     title: 'CheeEmu — Chơi game Java J2ME ngay trên trình duyệt',
@@ -11,6 +22,7 @@ const slides = [
     href: 'https://emu.cheehouse.io.vn',
     image: '/images/Project_AppRunEmu.png',
     theme: 'emu',
+    external: true,
   },
   {
     key: 'store',
@@ -21,6 +33,7 @@ const slides = [
     href: 'https://store.cheehouse.io.vn',
     image: '/images/Project_PMChatAI_API.png',
     theme: 'store',
+    external: true,
   },
 ]
 
@@ -59,8 +72,8 @@ onUnmounted(stop)
             class="promo__slide"
             :class="`promo__slide--${slide.theme}`"
             :href="slide.href"
-            target="_blank"
-            rel="noopener"
+            :target="slide.external ? '_blank' : undefined"
+            :rel="slide.external ? 'noopener' : undefined"
           >
             <div class="promo__body">
               <span class="promo__eyebrow">{{ slide.eyebrow }}</span>
@@ -102,11 +115,11 @@ onUnmounted(stop)
 <style scoped>
 .promo {
   position: relative;
-  padding: 100px 0 8px;
+  padding: 20px 0 8px;
 }
 
 @media (max-width: 768px) {
-  .promo { padding: 88px 0 4px; }
+  .promo { padding: 12px 0 4px; }
 }
 
 .promo__viewport {
@@ -131,6 +144,9 @@ onUnmounted(stop)
   color: var(--text-dark);
 }
 
+.promo__slide--cheehouse {
+  background: linear-gradient(120deg, var(--primary-200), var(--primary-100));
+}
 .promo__slide--emu {
   background: linear-gradient(120deg, var(--primary-100), var(--secondary-blue));
 }

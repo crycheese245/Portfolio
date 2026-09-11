@@ -15,8 +15,8 @@ useScrollReveal()
 
 <template>
   <main>
-    <PromoSlider />
     <HeroSection />
+    <PromoSlider />
     <AboutSection />
     <WorkProcess />
     <PortfolioSection />
