@@ -279,10 +279,9 @@ onMounted(() => {
   border-bottom: 1px solid var(--border);
   padding: 28px 0;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
