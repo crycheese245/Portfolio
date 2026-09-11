@@ -93,10 +93,7 @@ onMounted(() => {
         </div>
       </div>
 
-    </div>
-
-    <!-- Author card -->
-    <div class="container">
+      <!-- Right: Author card -->
       <div class="hero__author" :class="{ 'hero__author--show': isLoaded }">
         <div class="hero__author-top">
           <div class="hero__author-avatar-wrap">
@@ -141,21 +138,19 @@ onMounted(() => {
 .hero {
   min-height: 88vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 56px;
+  align-items: center;
   position: relative;
   padding: 64px 0 80px;
   overflow: hidden;
 }
 
 .hero__inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: center;
   position: relative;
   z-index: 1;
-}
-
-.hero__content {
-  max-width: 700px;
 }
 
 /* ------ Content ------ */
@@ -275,18 +270,20 @@ onMounted(() => {
 
 /* ------ Author card ------ */
 .hero__author {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 28px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: white;
+  box-shadow: var(--shadow-lg);
+  padding: 28px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 20px;
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+  transform: translateX(40px) scale(0.97);
+  transition: opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s;
 }
-.hero__author--show { opacity: 1; transform: translateY(0); }
+.hero__author--show { opacity: 1; transform: translateX(0) scale(1); }
 
 .hero__author-top {
   display: flex;
@@ -382,16 +379,19 @@ onMounted(() => {
   color: white;
 }
 
+@media (max-width: 1024px) {
+  .hero__inner { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
   .hero { padding: 100px 0 60px; }
   .hero__inner { text-align: center; }
 
-  .hero__content { max-width: 100%; }
   .hero__role { margin: 0 auto 36px; }
   .hero__actions { justify-content: center; }
   .hero__stats { justify-content: center; }
 
-  .hero__author { flex-direction: column; text-align: center; }
+  .hero__author { align-items: center; text-align: center; width: 100%; }
   .hero__author-top { flex-direction: column; }
   .hero__author-row { flex-direction: column; gap: 12px; }
 }
