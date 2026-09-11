@@ -108,7 +108,7 @@ const year = new Date().getFullYear()
         <span class="footer__network-label">Hệ thống CheeHouse:</span>
         <a href="https://emu.cheehouse.io.vn" target="_blank" rel="noopener">CheeEmu — Giả lập game J2ME</a>
         <span class="footer__network-sep" aria-hidden="true">•</span>
-        <a href="https://store.cheehouse.io.vn" target="_blank" rel="noopener">CheeHouse Store — Cửa hàng</a>
+        <a href="https://store.cheehouse.io.vn" target="_blank" rel="noopener">CheeStore — Cửa hàng</a>
       </div>
     </div>
 

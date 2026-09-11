@@ -15,7 +15,7 @@ const slides = [
   {
     key: 'store',
     eyebrow: 'Cửa hàng',
-    title: 'CheeHouse Store — Mua sắm chính hãng, giá tốt',
+    title: 'CheeStore — Mua sắm chính hãng, giá tốt',
     desc: 'Trang bán hàng của CheeHouse. Sản phẩm được tuyển chọn, thanh toán tiện lợi và hỗ trợ nhanh.',
     cta: 'Ghé cửa hàng',
     href: 'https://store.cheehouse.io.vn',

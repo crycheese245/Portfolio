@@ -48,7 +48,7 @@ ${bodyHtml}
 <footer>
   <p>Hệ thống CheeHouse:
     <a href="https://emu.cheehouse.io.vn">CheeEmu — Giả lập game J2ME</a> ·
-    <a href="https://store.cheehouse.io.vn">CheeHouse Store — Cửa hàng</a>
+    <a href="https://store.cheehouse.io.vn">CheeStore — Cửa hàng</a>
   </p>
   <p>&copy; ${new Date().getFullYear()} CheeHouse</p>
 </footer>
@@ -127,7 +127,7 @@ prerenderRoutes.get('/', async (_req, res) => {
       '<h2>Sản phẩm của CheeHouse</h2>',
       '<ul>',
       '  <li><a href="https://emu.cheehouse.io.vn">CheeEmu</a> — nền tảng chơi game Java J2ME trực tiếp trên trình duyệt.</li>',
-      '  <li><a href="https://store.cheehouse.io.vn">CheeHouse Store</a> — trang bán hàng của CheeHouse.</li>',
+      '  <li><a href="https://store.cheehouse.io.vn">CheeStore</a> — trang bán hàng của CheeHouse.</li>',
       '</ul>',
       '<h2>Dự án nổi bật</h2>',
       '<ul>',
