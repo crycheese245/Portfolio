@@ -1,6 +1,4 @@
 <script setup>
-import { ref, computed } from 'vue'
-
 const testimonials = [
   {
     text: 'Phần mềm rất dễ sử dụng, ngay cả với những nhân viên không rành công nghệ tại đại lý của tôi. Đội ngũ CheeHouse hỗ trợ rất tận tâm, đảm bảo hệ thống luôn hoạt động ổn định. Đây thực sự là công cụ đắc lực giúp tôi quản lý hàng nghìn tờ vé mỗi ngày mà không sợ sai sót.',
@@ -25,11 +23,10 @@ const testimonials = [
   },
 ]
 
-const current = ref(0)
-const active = computed(() => testimonials[current.value])
-
-const prev = () => { current.value = (current.value - 1 + testimonials.length) % testimonials.length }
-const next = () => { current.value = (current.value + 1) % testimonials.length }
+// Duplicated once so the marquee track can loop seamlessly (translate -50%
+// lands exactly back on an identical copy) - same 3 real testimonials, not
+// fabricated ones.
+const marqueeItems = [...testimonials, ...testimonials]
 </script>
 
 <template>
@@ -43,48 +40,25 @@ const next = () => { current.value = (current.value + 1) % testimonials.length }
           trong các dự án thiết kế và phát triển sản phẩm.
         </p>
       </div>
+    </div>
 
-      <div class="testimonial__wrap reveal">
-        <div class="testimonial__card">
-          <!-- Stars -->
-          <div class="testimonial__stars">
-            <svg v-for="i in active.rating" :key="i" width="18" height="18" viewBox="0 0 24 24" fill="#FBBF24" stroke="none">
+    <div class="testimonial__marquee reveal">
+      <div class="testimonial__track">
+        <div v-for="(t, i) in marqueeItems" :key="i" class="testimonial-card">
+          <div class="testimonial-card__top">
+            <strong class="testimonial-card__name">{{ t.name }}</strong>
+            <span class="testimonial-card__badge">{{ t.avatar }}</span>
+          </div>
+
+          <div class="testimonial-card__stars">
+            <svg v-for="s in t.rating" :key="s" width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24" stroke="none">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
             </svg>
           </div>
 
-          <blockquote class="testimonial__quote">
-            "{{ active.text }}"
-          </blockquote>
+          <p class="testimonial-card__text">"{{ t.text }}"</p>
 
-          <div class="testimonial__author">
-            <div class="testimonial__avatar">{{ active.avatar }}</div>
-            <div>
-              <strong class="testimonial__name">{{ active.name }}</strong>
-              <span class="testimonial__role">{{ active.role }}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Navigation -->
-        <div class="testimonial__nav">
-          <button class="testimonial__btn" @click="prev">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-
-          <div class="testimonial__dots">
-            <button
-              v-for="(_, i) in testimonials"
-              :key="i"
-              class="testimonial__dot"
-              :class="{ 'testimonial__dot--active': current === i }"
-              @click="current = i"
-            />
-          </div>
-
-          <button class="testimonial__btn" @click="next">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
+          <span class="testimonial-card__role">{{ t.role }}</span>
         </div>
       </div>
     </div>
@@ -92,137 +66,95 @@ const next = () => { current.value = (current.value + 1) % testimonials.length }
 </template>
 
 <style scoped>
-.testimonial__wrap {
-  max-width: 760px;
-  margin: 0 auto;
+.testimonial__marquee {
+  overflow: hidden;
+  margin-top: 56px;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
 }
 
-.testimonial__card {
-  background: var(--bg-light);
-  border-radius: var(--radius-xl);
-  padding: 52px 56px;
-  text-align: center;
+.testimonial__track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: testimonialMarquee 34s linear infinite;
+}
+
+.testimonial__marquee:hover .testimonial__track {
+  animation-play-state: paused;
+}
+
+@keyframes testimonialMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.testimonial-card {
+  flex-shrink: 0;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: white;
   border: 1px solid var(--border);
-  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow);
 }
 
-.testimonial__card::before {
-  content: '"';
-  position: absolute;
-  top: 24px;
-  left: 48px;
-  font-size: 120px;
-  line-height: 1;
-  color: var(--primary-200);
-  font-family: Georgia, serif;
-  font-weight: 700;
-}
-
-.testimonial__stars {
+.testimonial-card__top {
   display: flex;
-  justify-content: center;
-  gap: 4px;
-  margin-bottom: 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.testimonial__quote {
-  font-size: 18px;
-  line-height: 1.8;
-  color: var(--text-gray);
-  font-style: italic;
-  margin-bottom: 36px;
-  position: relative;
-  z-index: 1;
+.testimonial-card__name {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
 }
 
-.testimonial__author {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-
-.testimonial__avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+.testimonial-card__badge {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   background: linear-gradient(135deg, #E879B0, #87CEEA);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 700;
-  flex-shrink: 0;
 }
 
-.testimonial__name {
-  display: block;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text-dark);
-  text-align: left;
+.testimonial-card__stars {
+  display: flex;
+  gap: 2px;
 }
 
-.testimonial__role {
+.testimonial-card__text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-gray);
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.testimonial-card__role {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
   font-size: 13px;
-  color: var(--text-gray);
-}
-
-/* Navigation */
-.testimonial__nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 32px;
-}
-
-.testimonial__btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1.5px solid var(--border);
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--text-gray);
-  transition: var(--transition);
-}
-
-.testimonial__btn:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: white;
-  transform: scale(1.05);
-}
-
-.testimonial__dots {
-  display: flex;
-  gap: 8px;
-}
-
-.testimonial__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: var(--border);
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.testimonial__dot--active {
-  background: var(--primary);
-  width: 28px;
-  border-radius: 5px;
+  font-weight: 600;
+  color: var(--text-dark);
 }
 
 @media (max-width: 600px) {
-  .testimonial__card { padding: 36px 24px; }
-  .testimonial__card::before { font-size: 80px; left: 24px; }
-  .testimonial__quote { font-size: 16px; }
+  .testimonial-card { width: 270px; padding: 22px; }
 }
 </style>
