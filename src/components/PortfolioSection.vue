@@ -14,6 +14,15 @@ const projects = [
     detailRoute: '/du-an/cheestore',
   },
   {
+    id: 8,
+    image: '/images/Project_CheeEmuPro.jpg',
+    imagePosition: 'top',
+    category: 'Mobile',
+    title: 'CheeEmu Pro – App giả lập game đa hệ máy cho Android',
+    desc: 'Ứng dụng Android (Kotlin + Jetpack Compose) chơi game J2ME, GB/GBA, Arcade, PSP, PS1 và PS2 ngay trên điện thoại. Kho game đồng bộ với website CheeEmu, đăng nhập tài khoản, lưu nhanh, cheat, tuỳ chỉnh nút ảo, bảng xếp hạng và thành tựu.',
+    detailRoute: '/du-an/cheeemu-pro',
+  },
+  {
     id: 1,
     image: '/images/Project_PMQLDailyveso.png',
     category: 'Web',
@@ -128,7 +137,7 @@ const closeModal = () => {
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
               <span>Sắp Triển khai & Đồng hành</span>
             </div>
-            <img v-else :src="project.image" :alt="project.title" class="portfolio__img" loading="lazy" />
+            <img v-else :src="project.image" :alt="project.title" class="portfolio__img" :style="project.imagePosition ? { objectPosition: project.imagePosition } : undefined" loading="lazy" />
             <div v-if="!project.placeholder" class="portfolio__overlay">
               <RouterLink v-if="project.detailRoute" :to="project.detailRoute" class="btn btn-white btn-sm">
                 Xem chi tiết dự án
