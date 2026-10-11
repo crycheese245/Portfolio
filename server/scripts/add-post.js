@@ -13,8 +13,10 @@ import { slugify } from '../src/utils/slug.js'
 import { lotteryAgencyPost } from '../src/posts/lottery-agency.js'
 import { aichatPost } from '../src/posts/aichat.js'
 import { discordCheebotPost } from '../src/posts/discord-cheebot.js'
+import { cheestorePost } from '../src/posts/cheestore.js'
+import { cheeemuProPost } from '../src/posts/cheeemu-pro.js'
 
-const postsToAdd = [lotteryAgencyPost, aichatPost, discordCheebotPost]
+const postsToAdd = [lotteryAgencyPost, aichatPost, discordCheebotPost, cheestorePost, cheeemuProPost]
 
 async function run() {
   await sequelize.authenticate()

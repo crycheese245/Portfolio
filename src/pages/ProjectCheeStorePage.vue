@@ -9,7 +9,7 @@ const stack = [
   'Node.js + Express 5 (backend)',
   'MySQL + Sequelize ORM',
   'Socket.io (chat & thông báo realtime)',
-  'OpenAI / Gemini (AI Scan & trợ lý AI)',
+  'Claude / OpenAI / Gemini (AI Scan & trợ lý AI)',
   'OpenCV.js (xử lý ảnh thẻ bài)',
   'MoMo · PayPal · VietQR/SePay',
   'Nginx + Cloudflare',
