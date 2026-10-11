@@ -6,6 +6,14 @@ const activeFilter = ref('Tất cả')
 
 const projects = [
   {
+    id: 7,
+    image: '/images/Banner_CheeStore.png',
+    category: 'Web',
+    title: 'CheeStore – Web bán thẻ bài Yu-Gi-Oh! & Pokémon',
+    desc: 'Website thương mại điện tử bán thẻ bài Yu-Gi-Oh! và Pokémon lẻ: tìm kiếm sản phẩm, giỏ hàng, đặt hàng cho khách vãng lai, trang quản trị đơn hàng và trợ lý AI tư vấn khách hàng 24/7. Xem thêm tại: https://store.cheehouse.io.vn/',
+    detailRoute: '/du-an/cheestore',
+  },
+  {
     id: 1,
     image: '/images/Project_PMQLDailyveso.png',
     category: 'Web',

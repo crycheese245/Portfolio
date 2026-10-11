@@ -10,6 +10,11 @@ const routes = [
     component: () => import('../pages/ProjectCheeEmuPage.vue'),
   },
   {
+    path: '/du-an/cheestore',
+    name: 'project-cheestore',
+    component: () => import('../pages/ProjectCheeStorePage.vue'),
+  },
+  {
     path: '/blog',
     name: 'blog',
     component: () => import('../pages/BlogListPage.vue'),
